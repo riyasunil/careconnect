@@ -19,7 +19,7 @@ import { useRef, useState } from "react";
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
-const Register = () => {
+const ProviderReg = () => {
   return (
     <div>
         <Form>
@@ -56,5 +56,5 @@ const Register = () => {
   )
 }
 
-export default Register
+export default ProviderReg
 

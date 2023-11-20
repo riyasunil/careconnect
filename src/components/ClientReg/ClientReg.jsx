@@ -1,9 +1,8 @@
-import React from 'react'
+import React, {useRef, useState} from 'react'
 import {
     Form,
     Input,
     Tooltip,
-    Icon,
     Cascader,
     Select,
     Row,
@@ -13,17 +12,24 @@ import {
     AutoComplete,
     DatePicker
   } from 'antd';
+  import { Link } from "react-router-dom";
+import {supabase} from "../../supabase/client"  
 
-  
-import { useRef, useState } from "react";
+const ClientReg = () => {
+    const CemailRef = useRef(null);
+    const CpasswordRef = useRef(null);
+    const CconfirmPasswordRef = useRef(null);
+    const [errorMsg, setErrorMsg] = useState("");
+    const [msg, setMsg] = useState("");
+    const [loading, setLoading] = useState(false);
 
-const { Option } = Select;
-const AutoCompleteOption = AutoComplete.Option;
-const Register = () => {
+    const register = (email, password) =>
+    supabase.auth.signUp({ email, password });
+
   return (
     <div>
         <Form>
-            <Form.Item name='fullName' label='Full Name'>
+            <Form.Item name='fullName' label='Full Name' rules={[{required: true, message:'Please Enter Your Name'}]}>
                 <Input placeholder='Type your name'/>
             </Form.Item>
             <Form.Item name='email' label='Email'>
@@ -56,5 +62,5 @@ const Register = () => {
   )
 }
 
-export default Register
+export default ClientReg
 

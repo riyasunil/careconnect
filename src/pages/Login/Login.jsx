@@ -2,6 +2,7 @@ import React from 'react'
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../../context/AuthProvider';
+import "./Login.css";
 import {
     Form,
     Input,
@@ -43,8 +44,8 @@ const Login = () => {
         setLoading(false);
       };
   return (
-    <div>
-    <Form onSubmit={handleSubmit}>
+    <div className='LoginForm'>
+    <Form onSubmit={handleSubmit} >
             <Form.Item name='email' ref={LemailRef} label='Email'>
                 <Input placeholder='Your email'/>
             </Form.Item>

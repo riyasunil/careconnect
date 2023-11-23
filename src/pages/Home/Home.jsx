@@ -1,30 +1,23 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react"; 
-import { useState } from "react"
 import './Home.css'
-import SearchIcon from './Search.svg'
+
+import {Link} from "react-router-dom"
+import careHome from '../../assets/care.png'
 
 const Home = () => {
     //const [service,setService]= useState([])
-const [searchTerm, setSearchTerm] = useState('')
-    return(
-<div className="home">
-    <h3>care connect</h3>
-    <div className="search">
-                    <input
-                        placeholder="Search for services"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        />
 
-                    <img
-                        src={SearchIcon}
-                        alt="Search"
-                        //onClick={() }
-                    />   
-                </div>
-        
-    
-</div>
+    return(
+ <div className="home" style ={{backgroundImage: `url(${careHome})`}}>
+        <div className="headerContainer" > 
+            <h1>care connect</h1>
+            <p>care made simple</p>
+            <Link to="/menu">
+                 <button>BOOK NOW</button>
+            </Link>
+        </div>
+    </div>
     )
 }
 

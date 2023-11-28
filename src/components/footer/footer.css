@@ -7,11 +7,11 @@
     padding-top: 10px ;
     background-color: black;
     bottom: 0px;
-    position: fixed;
+
 }
 .footer p {
     text-align: center;
-    color: rgb(247, 154, 126);
+    color: rgba(202,159,133,255);
 }
 
     

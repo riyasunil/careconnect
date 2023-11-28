@@ -1,25 +1,37 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import SearchIcon from './Search.svg'
-
-function Services() {
-    const [searchTerm, setSearchTerm] = useState('')
+import { ServiceList } from './ServiceList'
+import ServiceItem from '../../components/ServiceItem/ServiceItem'
+import './Services.css'
+function Services () {
+  const [searchTerm, setSearchTerm] = useState('')
   return (
     <div className='services'>
-      <h1>hi</h1>
-      <div className="search">
-                    <input
-                        placeholder="Search for services"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        />
+     {/* <div className="search">
+        <input
+           placeholder="Search for services"
+           value={searchTerm}
+           onChange={(e) => setSearchTerm(e.target.value)}
+        />
 
-                    <img
-                        src={SearchIcon}
-                        alt="Search"
-                        //onClick={() }
-                    />   
-                </div>
+        <img
+            src={SearchIcon}
+            alt="Search"
+            // onClick={() }
+        />
+  </div > */}
+        <h1 className='servicesTitle' >Our Services</h1>
+        <div className='serviceList'>
+            {ServiceList.map((serviceItem, key) => {
+              return (
+              <ServiceItem key = { key }
+                image={serviceItem.image}
+                serviceName={serviceItem.service_name}
+                price={serviceItem.price}
+                />
+              )
+            })}
+      </div>
     </div>
   )
 }

@@ -5,7 +5,21 @@
     margin-top: 40px;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sidebar {
+    width: 200px;
+    padding: 20px;
+    background-color: #f0f0ff;
+    margin-right: 30px;
+    margin-left: 10px;
+ }
+
+  .mainContent {
+    flex-grow: 1;
+    padding: 20px;
+    
   }
 
   .searchInputContainer {
@@ -15,7 +29,7 @@
   .searchInputContainer input{
     color: rgba(202,159,133,255);
     height: 50px;
-font-size: 20px;
+   font-size: 20px;
   }
 
 
@@ -58,31 +72,66 @@ font-size: 20px;
     background-size: cover;
   }
   
-
-  .serviceItem {
-    border-radius: 15px;
-    cursor: pointer;
-    width: 300px;
-    height: 350px;
-    margin: 20px;
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  }
-  .serviceItem:hover {
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
-    transition: 0.3s ease-in;
-    cursor: pointer;
-  }
   
+    .serviceItem p {
+      padding-left:10px;
+      padding-bottom: 0px;
+    }
+  
+ 
+  .serviceItem h1{
+    font-weight: lighter;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+  }
   
 
   @media only screen and (max-width: 1300px) {
-    .serviceList {
-      grid-template-columns: 1fr 1fr;
+    .services {
+      flex-direction: column; 
+      justify-content: center;
+      align-items: center;
     }
+
+    .sidebar {
+      width: 200px;
+  
+    .serviceList {
+      grid-template-columns: 1fr 1fr
+    }
+
+    .mainContent {
+      flex-grow: 1;
+    }
+
+    .searchInputContainer {
+      width: 10%; /* Adjust the width as needed */
+      padding-bottom: 50px;
+  
+    }
+  
+
   }
+
   
   @media only screen and (max-width: 800px) {
     .serviceList {
       grid-template-columns: 1fr;
+    }
+  
+    }
+    .priceFilterContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+    .mainContent .searchInputContainer {
+      justify-content: center;
+      align-items: center;
+
+    }
+  
+    .sliderContainer {
+      width:80%;
+      margin-bottom: 20px;
     }
   }

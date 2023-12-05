@@ -1,6 +1,18 @@
 import Hairdresser from '../../assets/hairdresser.jpg'
-import Cleaning from '../../assets/cleaning.jpg'
+import Cleaning from '../../assets/hand-cleaning.jpg'
 export const ServiceList = [
+  {
+    service_name: 'Hair dresser',
+    image: Hairdresser,
+    price: 600
+
+  },
+  {
+    service_name: 'Hair dresser',
+    image: Hairdresser,
+    price: 600
+
+  },
   {
     service_name: 'Hair dresser',
     image: Hairdresser,

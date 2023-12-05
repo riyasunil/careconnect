@@ -50,7 +50,7 @@ const Login = () => {
           // For example, if you have a password field in the testprofile table:
           
             // Navigate to user profile upon successful login
-            navigate('/creg'); // Replace '/user-profile' with your user profile route
+            navigate('/home'); // Replace '/user-profile' with your user profile route
         }
       } catch (error) {
         setErrorMsg("Error occurred while logging in");

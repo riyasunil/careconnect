@@ -1,0 +1,144 @@
+.navbar {
+    width: 100%;
+    height: 100;
+    background-color: #121619;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+  }
+  /*rgba(202,159,133,255);*/
+  .navbar .leftSide {
+  display: flex;
+    height: 100%;
+    padding-left: 0px;
+    justify-content: space-between;
+  }
+  
+  .navbar .leftSide img {
+    width: 80px;
+    height: 80px;
+    text-align: left;
+    padding-left: 30px;
+  }
+
+  .navbar .leftSide h3 {
+    color:  rgba(202,159,133,255);
+    font-size: 20px;
+    align-items: center;
+    padding-top: 10px;
+    padding-left: 7px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+  }
+  
+  .navbar .rightSide {
+    flex: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 20px;
+  }
+  
+  .navbar a {
+    color:  rgba(202,159,133,255);
+    text-decoration: none;
+    align-items: center;
+    margin: 30px;
+    
+  }
+  
+  .navbar .rightSide button {
+    background-color: transparent;
+    border: none;
+    color:  rgba(202,159,133,255);
+    cursor: pointer;
+  }
+  
+  .navbar .rightSide svg {
+    font-size: 40px;
+  }
+  
+  .navbar #open {
+    padding-left: 0px;
+  }
+  .navbar #open img {
+    display: none;
+  }
+  .navbar #open h3 {
+    display: none;
+  }
+
+  .navbar #close img {
+    display: inherit;
+  }
+
+  .navbar #open .hiddenLinks {
+    display: inherit;
+    margin-left: 30px;
+  }
+  
+  .navbar #close .hiddenLinks {
+    display: none;
+  }
+  
+  .navbar #open a {
+    width: 70px;
+    margin: 5px;
+    margin-top: 40px;
+    padding-bottom: 32px;
+  }
+  @media only screen and (max-width: 900px) {
+    .navbar .rightSide a {
+      width: 70px;
+    }
+    .navbar .leftSide {
+      padding-left: 20px;
+
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+
+   
+    .navbar .rightSide a {
+      display: none;
+    }
+  
+    .navbar .rightSide {
+      justify-content: flex-end;
+      padding-right: 50px;
+      
+    }
+    
+    .navbar .leftSide h3 {
+      font-size: 20px;
+    }
+
+  
+    .navbar .rightSide button {
+      display: inherit;
+      margin-top: 30px;
+      padding-bottom: 10px;
+      
+    }
+
+    .navbar .leftSide img {
+      width: 80px;
+      height: 80px;
+      text-align: left;
+      margin-top: 10px;
+      padding-left: 0px;
+    }
+  }
+  
+  @media only screen and (min-width: 600px) {
+    .navbar .rightSide button {
+      display: none;
+    }
+
+  
+    .hiddenLinks {
+      display: none;
+    }
+  }

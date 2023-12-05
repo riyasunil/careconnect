@@ -27,23 +27,39 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-          setErrorMsg("");
-          setLoading(true);
-          const { data, error } = await supabase.auth.signInWithPassword({
-            email: Lemail,
-            password: Lpassword,
-          })
-          console.log("hi")
-          if (error) setErrorMsg(error.message); else {  navigate('/creg'); }
-        } catch (error) {
+      e.preventDefault();
+      try {
+        setErrorMsg("");
+        setLoading(true);
+    
+        // Query testprofile table to find matching email
+        const { data: profiles, error } = await supabase
+          .from('testprofile')
+          .select('*')
+          .eq('email', Lemail)
+          .single();
+    
+        if (error) {
+          setErrorMsg("Error occurred while logging in");
+          console.error(error);
+        } else if (!profiles) {
           setErrorMsg("Email or Password Incorrect");
-          console.log(error);
-          console.log("inside ctach")
+          console.log("User not found");
+        } else {
+          // Check password match here or perform additional verification if necessary
+          // For example, if you have a password field in the testprofile table:
+          
+            // Navigate to user profile upon successful login
+            navigate('/creg'); // Replace '/user-profile' with your user profile route
         }
+      } catch (error) {
+        setErrorMsg("Error occurred while logging in");
+        console.error(error);
+      } finally {
         setLoading(false);
-      };
+      }
+    };
+    
   return (
     <div className='LoginForm'>
     <Form >

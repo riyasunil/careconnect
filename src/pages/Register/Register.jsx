@@ -1,27 +1,22 @@
 import React from 'react'
-import {
+import "./Register.css";
+import { useRef, useState } from "react";
+/*import {
     Form,
     Input,
-    Tooltip,
-    Icon,
-    Cascader,
     Select,
-    Row,
-    Col,
     Checkbox,
     Button,
     AutoComplete,
     DatePicker
   } from 'antd';
 
-  
-import { useRef, useState } from "react";
-
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
 const Register = () => {
   return (
-    <div>
+    <div className='registerationForm'>
+       
         <Form>
             <Form.Item name='fullName' label='Full Name'>
                 <Input placeholder='Type your name'/>
@@ -53,8 +48,24 @@ const Register = () => {
             </Form.Item>
         </Form>
     </div>
+    
   )
+}*/
+
+function Register() {
+    return(
+    <div className="mainbox">
+        <div className="boxclient">
+
+        </div>
+        <div className="boxprovider">
+
+        </div>
+    </div>
+    
+    )
 }
+
 
 export default Register
 

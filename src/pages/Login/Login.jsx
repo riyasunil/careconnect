@@ -44,7 +44,10 @@ const Login = () => {
         setLoading(false);
       };
   return (
+    <div className="loginformbc">
     <div className='LoginForm'>
+     <div className="header">Login</div>
+      <div className="form">
     <Form onSubmit={handleSubmit} >
             <Form.Item name='email' ref={LemailRef} label='Email'>
                 <Input placeholder='Your email'/>
@@ -54,11 +57,19 @@ const Login = () => {
             </Form.Item>
             {errorMsg && (
               <Alert message={errorMsg} type='error' onClose={() => {setErrorMsg("")}}/>)}
-
             <Form.Item>
-                <Button type='primary' htmlType='submit'>Login</Button>
-            </Form.Item>
+                <Button className='loginbutton' type='primary' htmlType='submit'>Login</Button>
+            </Form.Item>          
     </Form>
+    </div>
+    <div className='gotoregister'>
+    <p className='abc'>Dont have an account?</p>
+    <Link to={"/reg"}><button className="regbutton">
+        Register
+      </button></Link>
+      
+    </div>
+    </div>
     </div>
   )
 }

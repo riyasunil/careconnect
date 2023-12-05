@@ -1,13 +1,10 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+import "./Provider.css"
 import {
     Form,
     Input,
-    Tooltip,
-    Icon,
-    Cascader,
     Select,
-    Row,
-    Col,
     Checkbox,
     Button,
     AutoComplete,
@@ -21,8 +18,15 @@ const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
 const ProviderReg = () => {
   return (
-    <div>
-        <Form>
+    <div className="providerregbc">
+        <div className="providerreg">
+        <div className="pregheader">Register as Service Provider </div>
+        <div className="pregform">
+            
+        <Form 
+         labelCol={{ span: 10}}
+         wrapperCol={{span : 14}}
+        >
             <Form.Item name='fullName' label='Full Name'>
                 <Input placeholder='Type your name'/>
             </Form.Item>
@@ -43,15 +47,22 @@ const ProviderReg = () => {
                 </Select>
             </Form.Item>
             <Form.Item name='dob' label='Date Of Birth'>
-                <DatePicker picker='date' placeholder='Choose a date'/>
+                <DatePicker style={{width:'100%'}}  picker='date' placeholder='Choose a date'/>
             </Form.Item>
-            <Form.Item name='tandc'>
-                <Checkbox> Agree to our terms and conditons</Checkbox>
+            <div className="insidepregform">
+            <Form.Item name='tandc' wrapperCol={{span: 24}}>
+                <Checkbox> Agree to our <a href="#"> Terms and Conditons </a></Checkbox>
             </Form.Item>
-            <Form.Item>
-                <Button type='primary' htmlType='submit'>Register</Button>
+            <Form.Item wrapperCol={{span: 24}}>
+                <Button type='primary' htmlType='submit' className='preginsidebutton'>Register</Button>
             </Form.Item>
+            </div>
         </Form>
+        </div>
+        <div className="alrAuser">
+            Already a user? <Link to={"/login"}> Login</Link>
+        </div>
+        </div>
     </div>
   )
 }

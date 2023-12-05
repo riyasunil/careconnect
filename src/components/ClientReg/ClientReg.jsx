@@ -16,6 +16,7 @@ import {
   import { Link } from "react-router-dom";
 import {supabase} from "../../supabase/client"  
 import "./Creg.css"
+import { ColorFactory } from 'antd/es/color-picker/color';
 
 const ClientReg = () => {
     const [Cemail, setCemail] = useState(""); // State for email
@@ -60,9 +61,10 @@ const ClientReg = () => {
       };
 
   return (
+    <div className="cregformbc">
     <div className='CregForm'>
+      <div className="headerc">Register as Client</div>
         <Form 
-            
             labelCol={{ span: 10}}
             wrapperCol={{span : 14}}
             >
@@ -98,13 +100,14 @@ const ClientReg = () => {
              <Alert message={msg} type='success' />
             )}
             <Form.Item wrapperCol={{span: 24}}>
-                <Button block type='primary' htmlType='submit' onClick={handleSubmit}>Register</Button>
+                <Button className='insidebutton' block type='primary' htmlType='submit' onClick={handleSubmit}>Register</Button>
             </Form.Item>
         </Form>
         <div className="alrAuser">
             Already a user? <Link to={"/login"}> Login</Link>
         </div>
     </div>
+  </div>
   )
 }
 

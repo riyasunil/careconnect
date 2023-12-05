@@ -17,13 +17,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60vh;
     margin: auto;
     border-radius: 20px;
     /* border: solid rgb(194, 130, 10) 2px; */
     background-color: white;
     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
     gap: 2rem;
+    padding: 1rem;
 
 }
 

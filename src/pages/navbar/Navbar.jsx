@@ -13,9 +13,8 @@ function Navbar () {
   }
   return (
     <div className='navbar'>
-
         <div className='leftSide' id ={openLinks ? 'open' : 'close'}>
-            <img src={Logo} />
+           <img src={Logo} />
             <h3>care connect</h3>
            <div className='hiddenLinks'>
             <Link to="/home" >Home </Link>

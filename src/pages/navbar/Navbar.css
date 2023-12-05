@@ -6,6 +6,11 @@
     display: flex;
     flex-direction: row;
   }
+
+  .divpls{
+    display: flex;
+    flex-direction: row;
+  }
   /*rgba(202,159,133,255);*/
   .navbar .leftSide {
   display: flex;

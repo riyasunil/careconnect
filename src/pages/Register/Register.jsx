@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Register.css";
-import { useRef, useState } from "react";
+import { Link } from 'react-router-dom';
 /*import {
     Form,
     Input,
@@ -55,12 +55,20 @@ const Register = () => {
 function Register() {
     return(
     <div className="mainbox">
+        <Link to={"/creg"}>
+        <button className='b1'>
         <div className="boxclient">
-
+           Register as Client
         </div>
-        <div className="boxprovider">
-
+        </button>
+        </Link>
+        <Link to={"/preg"}>
+        <button className='b2'>
+        <div className="boxprovider" >
+         Register as Service Provider
         </div>
+        </button>
+        </Link>
     </div>
     
     )

@@ -27,39 +27,39 @@ const ClientReg = () => {
     const [msg, setMsg] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const register = async (email, password, name, gender) => {
-  const { user, error } = await supabase.auth.signUp({ email, password });
-  if (error) {
-    throw error;
-  }
-  const { data, error: insertError } = await supabase
-    .from('users')
-    .insert([{ email, name, gender, id: user.id }]);
-  if (insertError) {
-    throw insertError;
-  }
-  return { user, data };
-};
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    setErrorMsg("");
-    setLoading(true);
-    const { user, data } = await register(
-      Cemail,
-      Cpassword,
-      Cname,
-      Cgender
-    );
-    console.log(user, data);
-    setMsg("Registration Successful. Check your email to confirm your account");
-  } catch (error) {
-    setErrorMsg("Error in Creating Account");
-    console.log(error);
-  }
-  setLoading(false);
-};
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        setErrorMsg("");
+        setLoading(true);
+        const { user, error } = await supabase.auth.signUp({
+          email: Cemail,
+          password: Cpassword,
+          options: {
+            data: {
+              name: Cname,
+              gender: Cgender
+            }
+          }
+        });
+    
+        if (error) {
+          console.error(error.message);
+          setErrorMsg("Error in Creating Account");
+          // handle the error here
+        } else {
+          console.log(user);
+          // handle the successful sign up here
+          setMsg("Registration Successful. Check your email to confirm your account");
+        }
+      } catch (error) {
+        setErrorMsg("Error in Creating Account");
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
 
   return (
     <div className='CregForm'>
@@ -112,3 +112,17 @@ const handleSubmit = async (e) => {
 
 export default ClientReg
 
+
+
+// if (error) {
+  //   throw error;
+  // }
+  // if (!user || !user.id) {
+  //   throw new Error('User not created or does not have an ID');
+  // }
+  // const { data, error: insertError } = await supabase
+  //   .from('users')
+  //   .insert([{ email, name, gender, id: user.id }]);
+  // if (insertError) {
+  //   throw insertError;
+  // }

@@ -3,6 +3,8 @@ import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../../context/AuthProvider';
 import "./Login.css";
+import {supabase} from "../../supabase/client"
+
 import {
     Form,
     Input,
@@ -17,46 +19,45 @@ import {
     DatePicker,
     Alert
   } from 'antd';
-import {supabase} from "../../supabase/client"
 const Login = () => {
-    const LemailRef = useRef(null);
-    const LpasswordRef = useRef(null);
-    const [errorMsg, setErrorMsg] = useState("");
+  const [Lemail, setLemail] = useState("");  
+  const [Lpassword, setLpassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const { login } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
           setErrorMsg("");
           setLoading(true);
-          const {
-            data: { user, session },
-            error
-          } = await login(LemailRef.current.value, LpasswordRef.current.value);
-          if (error) setErrorMsg(error.message);
-          //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-          if (user && session) navigate("/");
+          const { data, error } = await supabase.auth.signInWithPassword({
+            email: Lemail,
+            password: Lpassword,
+          })
+          console.log("hi")
+          if (error) setErrorMsg(error.message); else {  navigate('/creg'); }
         } catch (error) {
           setErrorMsg("Email or Password Incorrect");
+          console.log(error);
+          console.log("inside ctach")
         }
         setLoading(false);
       };
   return (
     <div className='LoginForm'>
-    <Form onSubmit={handleSubmit} >
-            <Form.Item name='email' ref={LemailRef} label='Email'>
+    <Form >
+            <Form.Item name='email' label='Email' value={Lemail} onChange={(e)=> setLemail(e.target.value)}>
                 <Input placeholder='Your email'/>
             </Form.Item>
-            <Form.Item name='password' ref={LpasswordRef} label='Password'>
+            <Form.Item name='password'value={Lpassword} onChange={(e)=> setLpassword(e.target.value)} label='Password'>
                 <Input.Password placeholder='password'/>
             </Form.Item>
             {errorMsg && (
               <Alert message={errorMsg} type='error' onClose={() => {setErrorMsg("")}}/>)}
 
             <Form.Item>
-                <Button type='primary' htmlType='submit'>Login</Button>
+                <Button type='primary' htmlType='submit' onClick={handleSubmit}>Login</Button>
             </Form.Item>
     </Form>
     </div>

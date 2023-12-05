@@ -61,6 +61,9 @@ const Login = () => {
     };
     
   return (
+    <div className="loginformbc">
+    <div className='LoginForm'>
+     <div className="header">Login</div>
     <div className='LoginForm'>
     <Form >
             <Form.Item name='email' label='Email' value={Lemail} onChange={(e)=> setLemail(e.target.value)}>
@@ -76,6 +79,15 @@ const Login = () => {
                 <Button type='primary' htmlType='submit' onClick={handleSubmit}>Login</Button>
             </Form.Item>
     </Form>
+    </div>
+    <div className='gotoregister'>
+    <p className='abc'>Dont have an account?</p>
+    <Link to={"/reg"}><button className="regbutton">
+        Register
+      </button></Link>
+      
+    </div>
+    </div>
     </div>
   )
 }

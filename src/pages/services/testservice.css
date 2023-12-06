@@ -1,0 +1,117 @@
+
+.services {
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+   
+  }
+  
+  .sidebar {
+    width: 25%;
+    padding: 20px;
+    margin-left: 10px;
+    
+  }
+  
+  .filterContainer {
+    margin-bottom: 20px;
+    
+  }
+  
+  
+  .mainContent {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .searchInputContainer {
+    margin-bottom: 20px;
+    border-color:  rgb(81, 59, 43);
+    
+  }
+
+  .searchInputContainer input {
+    margin-bottom: 20px;
+    border-color:  rgb(126, 91, 66);
+    color:  rgb(81, 59, 43);
+    
+  }
+  
+  
+  .serviceList {
+    width: 70vw;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+  }
+  
+  .profileItemWrapper {
+    border-radius: 30px;
+    cursor: pointer;
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .profileItemWrapper:hover {
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in;
+    cursor: pointer;
+  }
+  
+.profileItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profileDetails {
+    display: flex;
+    
+  }
+  
+  .avatar {
+   height:70px
+  }
+
+  .avatar img {
+    width: 90px;
+    height: 90px; 
+    
+  }
+  
+  .name {
+    height: 50px;
+    justify-content: center;
+    font-size: 18px; 
+    padding-bottom: 10px;
+  }
+  
+  .name  h2{
+    height: 60px;
+    color: rgb(161, 111, 76);
+    justify-content: center;
+    font-size: 25px; 
+  }
+  
+  .profileDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profileDetails p {
+    align-items: center;
+    color: rgb(114, 82, 59);
+    text-align: center;
+  }
+  
+  

@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, {useState, useEffect} from 'react'
 import { supabase
  } from '../../supabase/client'
-import "./Services.css"
+import "./testservice.css"
 import ProfileItem from './ProfileItem';
 import { Input, Slider } from 'antd'
 import { ServiceList } from '../../pages/services/ServiceList'

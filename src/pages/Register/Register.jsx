@@ -1,57 +1,45 @@
-import React from 'react'
-import {
-    Form,
-    Input,
-    Tooltip,
-    Icon,
-    Cascader,
-    Select,
-    Row,
-    Col,
-    Checkbox,
-    Button,
-    AutoComplete,
-    DatePicker
-  } from 'antd';
-
-  
-import { useRef, useState } from "react";
-
-const { Option } = Select;
-const AutoCompleteOption = AutoComplete.Option;
+import React, {useState} from "react"
+import { Radio } from "antd"
+import "./Register.css"
+import { useNavigate } from "react-router"
 const Register = () => {
+    const navigate = useNavigate()
+    const [userType, setUserType] = useState("");
+    const onChange = (e) => {
+        setUserType(e.target.value);
+        console.log(`checked = ${e.target.checked}`);
+      };
+      const handleCreateAccount = () => {
+        // Navigate based on the selected user type
+        if (userType === "client") {
+          navigate("/creg");
+        } else if (userType === "freelancer") {
+          navigate("/preg");
+        }
+      };
   return (
-    <div>
-        <Form>
-            <Form.Item name='fullName' label='Full Name'>
-                <Input placeholder='Type your name'/>
-            </Form.Item>
-            <Form.Item name='email' label='Email'>
-                <Input placeholder='Your email'/>
-            </Form.Item>
-            <Form.Item name='password' label='Password'>
-                <Input.Password placeholder='password'/>
-            </Form.Item>
-            <Form.Item name='confirmPassword' label='Confirm Password'>
-                <Input.Password placeholder='password'/>
-            </Form.Item>
-            <Form.Item name='gender' label='Gender'>
-                <Select placeholder='gender'>
-                    <Select.Option value='male'>Male</Select.Option>
-                    <Select.Option value='female'>Female</Select.Option>
-                    <Select.Option value='female'>Choose not to specify</Select.Option>
-                </Select>
-            </Form.Item>
-            <Form.Item name='dob' label='Date Of Birth'>
-                <DatePicker picker='date' placeholder='Choose a date'/>
-            </Form.Item>
-            <Form.Item name='tandc'>
-                <Checkbox> Agree to our terms and conditons</Checkbox>
-            </Form.Item>
-            <Form.Item>
-                <Button type='primary' htmlType='submit'>Register</Button>
-            </Form.Item>
-        </Form>
+    <div className="bigbox">
+       <div className="clmbox">
+            <h1>Join as a client or freelancer</h1>
+            <div className="rowbox" >
+                    <Radio.Group onChange={onChange} value={userType} className="rowbox2" size="large" buttonStyle="solid"
+                    >
+                        <div className="clientbox">
+                        <Radio className="client" value="client">
+                        <h3>I'm a client, hiring workers</h3>
+                        </Radio>
+                        </div>
+                        <div className="freebox">
+                        <Radio className="freelance" value="freelancer">
+                        <h3>I'm a freelancer, looking for work</h3>
+                        </Radio>
+                        </div>
+                       
+                </Radio.Group>
+            </div>
+            <button onClick={handleCreateAccount}>Create Account</button>
+                <p>Already have an account? <span><a href="/login">Log In</a></span></p>
+       </div>
     </div>
   )
 }

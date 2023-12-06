@@ -41,11 +41,11 @@ const ClientReg = () => {
       console.log("clicked");
   
       const {data, error} = await supabase
-        .from("testprofile")
+        .from("client_table")
         .insert([UserDetails]);
         //set err here
         if(error)console.log(error);
-        else navigate('/login');
+        else navigate('/updateprofile');
     };
 
     

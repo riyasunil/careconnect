@@ -13,8 +13,8 @@ const Home = () => {
         <div className="headerContainer" >
             <h1>care connect</h1>
             <p>care made simple</p>
-            <Link to="/home">
-                 <button>BOOK NOW</button>
+            <Link to="/search">
+               <button>BOOK NOW</button>
             </Link>
         </div>
     </div>

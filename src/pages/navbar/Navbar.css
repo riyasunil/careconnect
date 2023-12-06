@@ -7,6 +7,12 @@
     flex-direction: row;
   }
 
+  .navbarpfp{
+    width: 40px; /* Adjust the width and height as needed */
+    height: 40px;
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; 
+  }
   .divpls{
     display: flex;
     flex-direction: row;

@@ -34,18 +34,21 @@ const Login = () => {
     
         // Query testprofile table to find matching email
         const { data: profiles, error } = await supabase
-          .from('testprofile')
+          .from('initreg')
           .select('*')
           .eq('email', Lemail)
           .single();
     
         if (error) {
           setErrorMsg("Error occurred while logging in");
-          console.error(error);
+          console.log(error);
         } else if (!profiles) {
           setErrorMsg("Email or Password Incorrect");
           console.log("User not found");
         } else {
+          localStorage.clear();
+          localStorage.setItem('pregname', profiles.name);
+          localStorage.setItem('pregemail', profiles.email)
           // Check password match here or perform additional verification if necessary
           // For example, if you have a password field in the testprofile table:
           
@@ -54,7 +57,7 @@ const Login = () => {
         }
       } catch (error) {
         setErrorMsg("Error occurred while logging in");
-        console.error(error);
+        console.log(error);
       } finally {
         setLoading(false);
       }

@@ -9,11 +9,12 @@ import UpdateProfile from "./pages/UpdateProfile/UpdateProfile";
 import Register from "./pages/Register/Register";
 import ProviderReg from "./components/ProviderReg/ProviderReg";
 import Test from "./pages/services/testservice";
-import Services from "./pages/services/SErvices";
+// import Services from "./pages/services/SErvices";
+import TestTest from "./pages/services/testtest";
+import Services from "./pages/services/Services";
 
 function App() {
   return (
-    <>
       <div className="app">
         <Navbar />
         <Routes>
@@ -26,11 +27,13 @@ function App() {
           <Route path="/preg" element={<ProviderReg />} />
           <Route path="/search" element={<Services />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/tt" element={<TestTest />} />
+
+
 
         </Routes>
         <Footer />
       </div>
-    </>
   );
 }
 

@@ -41,11 +41,16 @@ const ProviderReg = () => {
       console.log("clicked");
   
       const {data, error} = await supabase
-        .from("freelancer_table")
+        .from("initreg")
         .insert([UserDetails]);
         //set err here
-        if(error)console.log(error);
-        else navigate('/login');
+        if(error){console.log(error);console.log("error here")}
+        else { 
+        localStorage.clear();
+        localStorage.setItem('pregname', UserDetails.name);
+        localStorage.setItem('pregemail', UserDetails.name);
+        navigate('/updateprofile');
+        }
     };
 
     
@@ -62,6 +67,19 @@ const ProviderReg = () => {
             <Form.Item name='fullName' label='Full Name' rules={[{required: true, message:'Please Enter Your Name'}]}>
                 <Input placeholder='Type your name' value={UserDetails.name} name='name'  onChange={handleChange}/>
             </Form.Item>
+            <Form.Item name='gender' label='Gender'>
+            <Select
+  value={UserDetails.gender}
+  name='gender'
+  onChange={(value) => setUserDetails({ ...UserDetails, gender: value })}
+  placeholder='gender'
+>
+  <Select.Option value='male'>Male</Select.Option>
+  <Select.Option value='female'>Female</Select.Option>
+  <Select.Option value='nospecify'>Choose not to specify</Select.Option>
+</Select>
+
+            </Form.Item>
             <Form.Item name='email'  label='Email'>
                 <Input placeholder='Your email' value={UserDetails.email} name='email' onChange={handleChange}/>
             </Form.Item>
@@ -71,16 +89,7 @@ const ProviderReg = () => {
             <Form.Item name='confirmPassword' label='Confirm Password'>
                 <Input.Password placeholder='password'/>
             </Form.Item>
-            <Form.Item name='gender' label='Gender'>
-                <Select   value={UserDetails.gender}
-                          name='gender'
-                          onChange={(value) => setUserDetails({ ...UserDetails, gender: value })}
-                          placeholder='gender'>
-                    <Select.Option value='male'>Male</Select.Option>
-                    <Select.Option value='female'>Female</Select.Option>
-                    <Select.Option value='nospecify'>Choose not to specify</Select.Option>
-                </Select>
-            </Form.Item>
+           
             {/* <Form.Item name='dob' label='Date Of Birth'>
                 <DatePicker style={{width:'100%'}} picker='date' placeholder='Choose a date'/>
             </Form.Item> */}

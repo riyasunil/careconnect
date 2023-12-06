@@ -36,7 +36,7 @@ const Services = () => {
   
         if (error) {
           // Handle error
-          console.error(error);
+          console.log(error);
           seterr("couldnt fetch data");
           setUserProfiles(null);
           setFilteredProfiles([]);
@@ -62,7 +62,7 @@ const Services = () => {
             seterr("error");
             setUserProfiles([]);
             setFilteredProfiles([]);
-            console.error(error);
+            console.log(error);
       }
     };
   

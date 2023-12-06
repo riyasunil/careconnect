@@ -9,7 +9,7 @@ import UpdateProfile from "./pages/UpdateProfile/UpdateProfile";
 import Register from "./pages/Register/Register";
 import ProviderReg from "./components/ProviderReg/ProviderReg";
 import Test from "./pages/services/testservice";
-import Services from "./pages/services/SErvices";
+import Services from "./pages/services/Services";
 
 function App() {
   return (

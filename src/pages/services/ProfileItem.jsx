@@ -6,10 +6,10 @@ function ProfileItem({ avatar, name, phoneNo, expectedSalary, location, services
     <div className='profileItem'>
       <div className='avatar'>
         <img src={avatar} alt='Avatar' />
-      </div>
+      </div> 
+      <div className='name'><h2>{name}</h2></div>
       <div className='profileDetails'>
-        <h2>{name}</h2>
-        <p>Phone No: {phoneNo}</p>
+       <p>Phone No: {phoneNo}</p>
         <p>Expected Salary: {expectedSalary}</p>
         <p>Location: {location}</p>
         <p>Services: {services.join(', ')}</p>

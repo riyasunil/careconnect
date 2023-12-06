@@ -31,7 +31,7 @@ function Navbar () {
             <img src={Logo} />
                 <h3>care connect</h3>
                         <div className='hiddenLinks'>
-                            <Link to="/home" >Home </Link>
+                            <Link to="/test" >Services </Link>
                             <Link to="/login" > Login </Link>
                             <Link to="/reg" > Register </Link>
 
@@ -39,7 +39,7 @@ function Navbar () {
             </div>
 
         <div className='rightSide'>
-          <Link to="/home" >Home </Link>
+          <Link to="/test" >Services </Link>
           <Link to="/login" > Login </Link>
           <Link to="/reg" > Register </Link>
           <Dropdown menu={{items}}>

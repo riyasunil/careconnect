@@ -13,7 +13,9 @@ const Services = () => {
     (service) =>
       service.service_name.toLowerCase().includes(searchTerm.toLowerCase()) &&
       service.price >= priceRange[0] &&
-      service.price <= priceRange[1]
+      service.price <= priceRange[1] &&
+      service.distance >= distRange[0] &&
+      service.distance <= distRange[1]
   )
 
   const handlePriceRangeChange = (value) => {
@@ -28,7 +30,7 @@ const Services = () => {
     <>
       <div className='services'>
         <div className='sidebar'>
-          <div className='priceFilterContainer'>
+          <div className='filterContainer'>
             <p>Price Range (Rs. 1-1000):</p>
             <Slider
               range

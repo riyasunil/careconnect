@@ -25,6 +25,7 @@
   .searchInputContainer {
     width: 60%;
     padding-bottom: 50px;
+    padding-left: 60px;
   }
   .searchInputContainer input{
     color: rgba(202,159,133,255);
@@ -105,7 +106,7 @@
     }
 
     .searchInputContainer {
-      width: 10%; /* Adjust the width as needed */
+      width: 10%; 
       padding-bottom: 50px;
   
     }

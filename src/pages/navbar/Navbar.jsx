@@ -39,7 +39,7 @@ function Navbar () {
             </div>
 
         <div className='rightSide'>
-          <Link to="/test" >Services </Link>
+          <Link to="/tt" >Services </Link>
           <Link to="/login" > Login </Link>
           <Link to="/reg" > Register </Link>
           <Dropdown menu={{items}}>

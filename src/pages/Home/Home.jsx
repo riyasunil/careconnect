@@ -12,7 +12,7 @@ const Home = () => {
         <div className="headerContainer" >
             <h1>care connect</h1>
             <p>care made simple</p>
-            <Link to="/test">
+            <Link to="/tt">
                <button>BOOK NOW</button>
             </Link>
         </div>
